@@ -1,18 +1,15 @@
 #include "Buffer.h"
 #include "OpenCLException.h"
 
+
 using namespace OpenCL;
 
-Buffer::Buffer(cl_context context,
- 	cl_mem_flags flags,
- 	size_t size,
- 	void *host_ptr) :
-	MemoryObject(CreateBuffer(context, flags, size, host_ptr))
-{
 
-}
+OpenCL::Buffer::Buffer(Context^ context, size_t size)
+	: MemoryObject(CreateBuffer(context->_context, CL_MEM_READ_WRITE, size, nullptr))
+{}
 
-cl_mem Buffer::CreateBuffer(cl_context context,
+cl_mem OpenCL::Buffer::CreateBuffer(cl_context context,
  	cl_mem_flags flags,
  	size_t size,
  	void *host_ptr)
@@ -28,3 +25,4 @@ cl_mem Buffer::CreateBuffer(cl_context context,
 		throw gcnew OpenCLException(static_cast<ErrorCode>(errCode));
 	}
 }
+

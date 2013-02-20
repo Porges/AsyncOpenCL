@@ -28,7 +28,7 @@ namespace ConsoleApplication1
             int maxBytes = 10000;
             var device = Platform.GetPlatforms().First().GetDevices(DeviceType.Gpu).First();
             using (var ctx = new Context(device))
-            using (var buffer = ctx.CreateBuffer((ulong)maxBytes))
+            using (var buffer = new Buffer(ctx, (ulong)maxBytes))
             using (var queue = new CommandQueue(ctx, device))
             {
                 for (int bytes = 1; bytes <= maxBytes; ++bytes)

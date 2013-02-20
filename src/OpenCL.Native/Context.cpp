@@ -46,8 +46,3 @@ Context::~Context()
 {
 	clReleaseContext(_context);
 }
-
-OpenCL::Buffer^ Context::CreateBuffer(size_t size)
-{
-	return gcnew Buffer(_context, CL_MEM_READ_WRITE, size, nullptr);
-}

@@ -1,6 +1,5 @@
 #pragma once
 #include <CL/opencl.h>
-#include "Buffer.h"
 
 #include "Platform.h"
 #include "Device.h"
@@ -21,6 +20,5 @@ namespace OpenCL
 		Context(Device^ device);
 		~Context();
 
-		OpenCL::Buffer^ CreateBuffer(size_t size);
 	};
 }

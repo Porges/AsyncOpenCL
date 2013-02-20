@@ -4,6 +4,7 @@
 #include "Event.h"
 #include "Context.h"
 #include "Device.h"
+#include "Buffer.h"
 
 namespace OpenCL
 {
